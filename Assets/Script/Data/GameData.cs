@@ -45,6 +45,12 @@ public class Vampire
     public string clan;
     /*  계급  */
     public string caste;
+    /*  성별  */
+    public string gender;
+    /*  이전 직업  */
+    public string prev_job;
+    /*  욕망  */
+    public string desire;
     /*  체력  */
     public int max_HP, remain_HP;
     /*  능력치(육체, 이능)  */
