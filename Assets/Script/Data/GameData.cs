@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
@@ -58,16 +58,31 @@ public class Vampire
     /*  스킬리스트  */
     public List<Skill> skill_list = new List<Skill>();
 }
-/*  스킬  */
+/*  유닛  */
 [Serializable]
+public class Unit
+{
+    /*  이름  */
+    public string name;
+    /*  체력  */
+    public int max_HP, remain_HP;
+    /*  SP  */
+    public int max_SP, remain_SP;
+    /*  AP  */
+    public int max_AP, pool_AP;
+    /*  능력치(육체, 이능)  */
+    public int physical, psychic;
+    /*  스킬리스트  */
+    public List<Skill> skill_list = new List<Skill>();
+}
+    /*  스킬  */
+    [Serializable]
 public class Skill
 {
     /*  스킬의 코드, 이름, 설명  */
     public string code, name, info;
-    /*  스킬 최대 레벨, 레벨, 경험치, 난이도  */
-    public int max_level, level, exp, difficulty;
-    /*  필요한 사용에 필요한 자원(sp, 오행)  */
-    public int sp, wood, fire, earth, metal, water;
+    /*  스킬 사용 조건  */
+    public List<string> need = new List<string>();
     /*  스킬 사용 시 효과  */
-    public List<string> effect;
+    public List<string> effect = new List<string>();
 }

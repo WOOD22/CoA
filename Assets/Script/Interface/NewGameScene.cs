@@ -77,8 +77,12 @@ public class NewGameScene : MonoBehaviour
         if (name.text != "")
         {
             data.player.name = name.text;
+            data.year = 1950;
+            data.month = 1;
+            data.day = 1;
             choice_1.SetActive(true);
             choice_5.SetActive(false);
+            GameObject.Find("DataManager").GetComponent<GameData>().Save_File("1");
             GameObject.Find("SceneManager").GetComponent<SceneChanger>().SceneChange("GameScene");
         }
     }
