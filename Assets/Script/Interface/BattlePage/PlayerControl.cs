@@ -6,11 +6,11 @@ public class PlayerControl : MonoBehaviour
 {
     public Unit unit;
     public GameObject field;
-    public List<GameObject> target = new List<GameObject>();
+    public List<GameObject> target;
     SkillData skilldata;
     public bool is_enemy_target= false;
     public bool is_friendly_target = false;
-    public int number_target = 0;
+    public int number_target;
 
 
     void OnEnable()
@@ -26,6 +26,7 @@ public class PlayerControl : MonoBehaviour
         unit.max_AP = 100;
         unit.pool_AP = 0;
 
+        target = this.GetComponent<Unit_Status>().target;
         skilldata = GameObject.Find("DataManager").GetComponent<SkillData>();
 
         unit.skill_list.Add(skilldata.skill_list[0]);
@@ -46,7 +47,7 @@ public class PlayerControl : MonoBehaviour
     public void Attack_Button()
     {
         is_enemy_target = true;
-        target = new List<GameObject>();
+        target.Clear();
         number_target = 1;
     }
 
@@ -67,7 +68,7 @@ public class PlayerControl : MonoBehaviour
     {
         is_enemy_target = false;
         is_friendly_target = false;
-        target = new List<GameObject>();
+        target.Clear();
         number_target = 0;
     }
 

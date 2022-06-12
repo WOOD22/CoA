@@ -29,7 +29,6 @@ public class BattlePage : MonoBehaviour
     {
         is_delay = true;
         yield return new WaitForSeconds(turn_speed);
-        Debug.Log("0");
         is_delay = false;
     }
 

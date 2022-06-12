@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class Unit_Status : MonoBehaviour
 {
     public Unit unit;
+    public List<GameObject> target = new List<GameObject>();
+    public int number_target = 0;
     public GameObject HPbar, SPbar, APbar;
 
     private void Update()

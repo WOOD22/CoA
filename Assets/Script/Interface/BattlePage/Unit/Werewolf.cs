@@ -27,7 +27,7 @@ public class Werewolf : MonoBehaviour
             unit.pool_AP += 15;
             if (unit.pool_AP >= unit.max_AP)
             {
-                target.GetComponent<Unit_Status>().unit.remain_HP -= 10;
+                target.GetComponent<Unit_Status>().unit.remain_HP -= unit.physical;
                 unit.pool_AP -= unit.max_AP;
             }
         }
