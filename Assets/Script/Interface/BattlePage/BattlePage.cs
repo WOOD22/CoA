@@ -39,6 +39,6 @@ public class BattlePage : MonoBehaviour
     public static void Play_Button()
     {
         is_pause = false;
-        turn_speed = 0.2f;
+        turn_speed = 0.1f;
     }
 }

@@ -17,8 +17,12 @@ public class SkillData : MonoBehaviour
             skill.code = skill_table[i]["code"].ToString();
             skill.name = skill_table[i]["name"].ToString();
             skill.info = skill_table[i]["info"].ToString();
+            skill.target_type = skill_table[i]["target_type"].ToString();
+            skill.target_number = int.Parse(skill_table[i]["target_number"].ToString());
             //조건 태그화
             string need = skill_table[i]["need"].ToString();
+
+            skill.need = new List<string>();
 
             while (need.Contains("#") == true)
             {
@@ -31,6 +35,8 @@ public class SkillData : MonoBehaviour
             skill.need.Reverse();
             //효과 태그화
             string effect = skill_table[i]["effect"].ToString();
+            
+            skill.effect = new List<string>();
 
             while (effect.Contains("#") == true)
             {

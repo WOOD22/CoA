@@ -75,14 +75,18 @@ public class Unit
     /*  스킬리스트  */
     public List<Skill> skill_list = new List<Skill>();
 }
-    /*  스킬  */
-    [Serializable]
-public class Skill
+/*  스킬  */
+[Serializable]
+public struct Skill
 {
     /*  스킬의 코드, 이름, 설명  */
     public string code, name, info;
+    /*  스킬 사용 대상  */
+    public string target_type;
+    /*  스킬 사용 대상 수  */
+    public int target_number;
     /*  스킬 사용 조건  */
-    public List<string> need = new List<string>();
+    public List<string> need;
     /*  스킬 사용 시 효과  */
-    public List<string> effect = new List<string>();
+    public List<string> effect;
 }
