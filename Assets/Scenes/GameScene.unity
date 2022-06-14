@@ -2953,6 +2953,7 @@ MonoBehaviour:
   is_friendly_target: 0
   AttackBoard: {fileID: 764569940}
   TargetBoard: {fileID: 1794492804}
+  Skill_Text_0: {fileID: 4818306}
 --- !u!114 &935867476
 MonoBehaviour:
   m_ObjectHideFlags: 0

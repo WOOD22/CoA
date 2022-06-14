@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class PlayerControl : MonoBehaviour
 
     public GameObject AttackBoard;
     public GameObject TargetBoard;
+
+    public Text Skill_Text_0;
 
     void OnEnable()
     {
@@ -31,6 +34,8 @@ public class PlayerControl : MonoBehaviour
         skilldata = GameObject.Find("DataManager").GetComponent<SkillData>();
 
         unit.skill_list.Add(skilldata.skill_list[0]);
+
+        Skill_Text_0.text = skilldata.skill_list[0].name;
     }
     //레이트업데이트를 사용해야 작동함
     void LateUpdate()
@@ -95,7 +100,7 @@ public class PlayerControl : MonoBehaviour
     {
         if (unit.pool_AP >= unit.max_AP && this.GetComponent<Unit_Status>().number_target == 0)
         {
-            this.gameObject.GetComponent<SkillButton>().Use_Skill(unit.skill_list[num]);
+            this.gameObject.GetComponent<Use_Skill>().Using_Skill(unit.skill_list[num]);
 
             this.GetComponent<Unit_Status>().End_Turn();
         }

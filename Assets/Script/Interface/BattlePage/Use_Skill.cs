@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SkillButton : MonoBehaviour
+public class Use_Skill : MonoBehaviour
 {
     Unit_Status Unit_Status;
 
@@ -12,7 +12,7 @@ public class SkillButton : MonoBehaviour
         Unit_Status = this.GetComponent<Unit_Status>();
     }
 
-    public void Use_Skill(Skill skill)
+    public void Using_Skill(Skill skill)
     {
         //need 처리
         for(int i = 0; i < skill.need.Count; i++)
