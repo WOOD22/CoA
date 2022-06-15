@@ -2022,7 +2022,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &668529113
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2097,6 +2097,30 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1398980027}
+        m_TargetAssemblyTypeName: DateUI, Assembly-CSharp
+        m_MethodName: Pause_Button
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 668529112}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &668529115
 MonoBehaviour:
@@ -2276,9 +2300,9 @@ MonoBehaviour:
   player_team:
   - {fileID: 935867470}
   enemy_team:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2058726373}
+  - {fileID: 473809532}
+  - {fileID: 1907354592}
 --- !u!1 &764569940
 GameObject:
   m_ObjectHideFlags: 0
@@ -3802,6 +3826,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1398980026}
   - component: {fileID: 1398980027}
+  - component: {fileID: 1398980028}
   m_Layer: 0
   m_Name: InterfaceManager
   m_TagString: Untagged
@@ -3836,6 +3861,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   date_text: {fileID: 937306287}
+--- !u!114 &1398980028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398980025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f09759e518bb3345abfb7db0cad2c64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  battle_event_pop: {fileID: 668529112}
 --- !u!1 &1410050691
 GameObject:
   m_ObjectHideFlags: 0

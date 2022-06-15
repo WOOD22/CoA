@@ -30,6 +30,10 @@ public class Unit_Status : MonoBehaviour
         if(unit.remain_HP <= 0)
         {
             this.gameObject.SetActive(false);
+            if(this.transform.parent.name == "Enemy")
+            {
+                BattlePage.enemy_death_count++;
+            }
         }
     }
 }

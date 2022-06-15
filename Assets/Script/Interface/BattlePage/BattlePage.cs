@@ -7,6 +7,8 @@ public class BattlePage : MonoBehaviour
     public List<GameObject> player_team = new List<GameObject>();
     public List<GameObject> enemy_team = new List<GameObject>();
 
+    public static int enemy_death_count;
+
     static float turn_speed = 0.1f;
     public static bool is_pause;
     public static bool is_delay;
@@ -23,6 +25,10 @@ public class BattlePage : MonoBehaviour
         {
             StartCoroutine(Turn_Gone());
         }
+        if(enemy_death_count == enemy_team.Count)
+        {
+            End_Battle();
+        }
     }
 
     IEnumerator Turn_Gone()
@@ -36,9 +42,15 @@ public class BattlePage : MonoBehaviour
     {
         is_pause = true;
     }
+
     public static void Play_Button()
     {
         is_pause = false;
         turn_speed = 0.1f;
+    }
+
+    public void End_Battle()
+    {
+        this.gameObject.SetActive(false);
     }
 }

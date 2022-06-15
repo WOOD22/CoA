@@ -33,6 +33,9 @@ public class DateUI : MonoBehaviour
                 data.month = 12;
                 data.year++;
             }
+
+            this.GetComponent<EventPop>().BattleEvent();
+
             StartCoroutine(Time_Gone());
         }
     }
