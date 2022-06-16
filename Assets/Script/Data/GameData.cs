@@ -23,8 +23,12 @@ public class GameData : MonoBehaviour
     public void Load_File(string file_name)
     {
         string path = Path.Combine(Application.persistentDataPath + "/Save", file_name + ".json");
-        string save = File.ReadAllText(path);
-        data = JsonUtility.FromJson<Data>(save);
+        FileInfo fileInfo = new FileInfo(path);
+        if(fileInfo.Exists)
+        {
+            string save = File.ReadAllText(path);
+            data = JsonUtility.FromJson<Data>(save);
+        }
     }
 }
 /*  게임 데이터  */
@@ -37,10 +41,8 @@ public class Data
 }
 /*  뱀파이어  */
 [Serializable]
-public class Vampire
+public class Vampire : Unit
 {
-    /*  이름  */
-    public string name;
     /*  혈족  */
     public string clan;
     /*  계급  */
@@ -51,19 +53,13 @@ public class Vampire
     public string prev_job;
     /*  욕망  */
     public string desire;
-    /*  체력  */
-    public int max_HP, remain_HP;
-    /*  능력치(육체, 이능)  */
-    public int physical, psychic;
-    /*  스킬리스트  */
-    public List<Skill> skill_list = new List<Skill>();
 }
 /*  유닛  */
 [Serializable]
 public class Unit
 {
     /*  이름  */
-    public string name;
+    public string name = "";
     /*  체력  */
     public int max_HP, remain_HP;
     /*  SP  */

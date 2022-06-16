@@ -12,8 +12,8 @@ public class Werewolf : MonoBehaviour
         unit.name = "늑대인간";
         unit.physical = 5;
         unit.psychic = 1;
-        unit.max_HP = 100;
-        unit.remain_HP = 100;
+        unit.max_HP = 50;
+        unit.remain_HP = 50;
         unit.max_SP = 10;
         unit.remain_SP = 10;
         unit.max_AP = 100;

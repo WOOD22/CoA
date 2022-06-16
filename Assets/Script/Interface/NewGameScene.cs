@@ -71,7 +71,7 @@ public class NewGameScene : MonoBehaviour
             choice_4.SetActive(false);
         }
     }
-
+    //마지막 결정 모든 결정들을 종합하여 능력치를 정한다.
     public void Dicision_Choice_5()
     {
         if (name.text != "")
@@ -82,6 +82,45 @@ public class NewGameScene : MonoBehaviour
             data.day = 1;
             choice_1.SetActive(true);
             choice_5.SetActive(false);
+
+            switch (data.player.gender)
+            {
+                case "Male":
+                    data.player.physical += 4;
+                    data.player.psychic += 1;
+                    break;
+            }
+
+            switch (data.player.prev_job)
+            {
+                case "Police":
+                    data.player.physical += 4;
+                    data.player.psychic += 1;
+                    break;
+            }
+
+            switch (data.player.desire)
+            {
+                case "Power":
+                    data.player.physical += 2;
+                    data.player.psychic += 3;
+                    break;
+            }
+
+            switch (data.player.clan)
+            {
+                case "Vladimir":
+                    data.player.physical += 3;
+                    data.player.psychic += 2;
+                    break;
+            }
+
+            data.player.max_HP = data.player.physical * 10;
+            data.player.remain_HP = data.player.max_HP;
+            data.player.max_SP = data.player.psychic * 10;
+            data.player.remain_SP = data.player.max_SP;
+            data.player.caste = "Servant";
+
             GameObject.Find("DataManager").GetComponent<GameData>().Save_File("1");
             GameObject.Find("SceneManager").GetComponent<SceneChanger>().SceneChange("GameScene");
         }

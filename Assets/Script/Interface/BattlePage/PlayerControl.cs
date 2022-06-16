@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour
 {
+    Data data;
     public Unit unit;
     public GameObject field;
     public List<GameObject> target;
@@ -19,20 +20,22 @@ public class PlayerControl : MonoBehaviour
 
     void OnEnable()
     {
+        data = GameObject.Find("DataManager").GetComponent<GameData>().data;
+        skilldata = GameObject.Find("DataManager").GetComponent<SkillData>();
         unit = this.GetComponent<Unit_Status>().unit;
-        unit.name = "플레이어";
-        unit.physical = 15;
-        unit.psychic = 20;
-        unit.max_HP = unit.physical * 10;
-        unit.remain_HP = unit.max_HP;
-        unit.max_SP = 100;
-        unit.remain_SP = 100;
+
+        unit.name = data.player.name;
+        unit.physical = data.player.physical;
+        unit.psychic = data.player.psychic;
+        unit.max_HP = data.player.max_HP;
+        unit.remain_HP = data.player.remain_HP;
+        unit.max_SP = data.player.max_SP;
+        unit.remain_SP = data.player.remain_SP;
         unit.max_AP = 100;
         unit.pool_AP = 0;
 
         target = this.GetComponent<Unit_Status>().target;
         skilldata = GameObject.Find("DataManager").GetComponent<SkillData>();
-
         unit.skill_list.Add(skilldata.skill_list[0]);
 
         Skill_Text_0.text = skilldata.skill_list[0].name;
@@ -69,7 +72,7 @@ public class PlayerControl : MonoBehaviour
             {
                 target[0].GetComponent<Unit_Status>().unit.remain_HP -= unit.physical;
             }
-            
+            AttackBoard.SetActive(false);
             this.GetComponent<Unit_Status>().End_Turn();
         }
     }
@@ -101,7 +104,7 @@ public class PlayerControl : MonoBehaviour
         if (unit.pool_AP >= unit.max_AP && this.GetComponent<Unit_Status>().number_target == 0)
         {
             this.gameObject.GetComponent<Use_Skill>().Using_Skill(unit.skill_list[num]);
-
+            TargetBoard.SetActive(false);
             this.GetComponent<Unit_Status>().End_Turn();
         }
     }

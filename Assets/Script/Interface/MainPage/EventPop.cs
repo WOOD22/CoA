@@ -10,6 +10,7 @@ public class EventPop : MonoBehaviour
         if (Random.Range(0, 100) < 10)
         {
             battle_event_pop.SetActive(true);
+            DateUI.Pause_Button();
         }
     }
 }

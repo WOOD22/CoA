@@ -756,7 +756,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\uB2F9\uC2E0\uC774 \uBC40\uD30C\uC774\uC5B4\uAC00 \uB418\uAE30 \uC804
-    \uC9C1\uC5C5\uC740?"
+    \uC9C1\uC5C5\uC740?(\uACBD\uCC30\uB9CC \uC2A4\uD0EF)"
 --- !u!222 &89085913
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -941,16 +941,20 @@ MonoBehaviour:
     day: 0
     player:
       name: 
+      max_HP: 0
+      remain_HP: 0
+      max_SP: 0
+      remain_SP: 0
+      max_AP: 0
+      pool_AP: 0
+      physical: 0
+      psychic: 0
+      skill_list: []
       clan: 
       caste: 
       gender: 
       prev_job: 
       desire: 
-      max_HP: 0
-      remain_HP: 0
-      physical: 0
-      psychic: 0
-      skill_list: []
 --- !u!4 &203915894
 Transform:
   m_ObjectHideFlags: 0
@@ -3170,7 +3174,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uB2F9\uC2E0\uC774 \uBC40\uD30C\uC774\uC5B4\uAC00 \uB41C \uBAA9\uC801\uC740?"
+  m_Text: "\uB2F9\uC2E0\uC774 \uBC40\uD30C\uC774\uC5B4\uAC00 \uB41C \uBAA9\uC801\uC740?(\uAD8C\uB825\uB9CC
+    \uC2A4\uD0EF)"
 --- !u!222 &781250616
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3525,7 +3530,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uB2F9\uC2E0\uC774 \uB4E4\uC5B4\uAC00\uAC8C\uB41C \uD608\uC871\uC740?"
+  m_Text: "\uB2F9\uC2E0\uC774 \uB4E4\uC5B4\uAC00\uAC8C\uB41C \uD608\uC871\uC740?(\uBE14\uB77C\uB514\uBBF8\uB974\uB9CC
+    \uC2A4\uD0EF)"
 --- !u!222 &831291131
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3746,7 +3752,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uB2F9\uC2E0\uC758 \uC131\uBCC4\uC740?"
+  m_Text: "\uB2F9\uC2E0\uC758 \uC131\uBCC4\uC740?\n(\uB0A8\uC131\uB9CC \uC2A4\uD0EF)"
 --- !u!222 &863214271
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class DateUI : MonoBehaviour
 {
     public Text date_text;
-    float date_speed = 1.0f;
-    bool is_pause = true;
-    bool is_delay;
+    static float date_speed = 1.0f;
+    static bool is_pause = true;
+    static bool is_delay;
     Data data;
 
     void Start()
@@ -47,16 +47,16 @@ public class DateUI : MonoBehaviour
         is_delay = false;
     }
 
-    public void Pause_Button()
+    public static void Pause_Button()
     {
         is_pause = true;
     }
-    public void Play_Button()
+    public static void Play_Button()
     {
         is_pause = false;
         date_speed = 1.0f;
     }
-    public void Fast_Button()
+    public static void Fast_Button()
     {
         is_pause = false;
         date_speed = 0.1f;
