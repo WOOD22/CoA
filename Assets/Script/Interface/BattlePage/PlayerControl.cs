@@ -57,20 +57,28 @@ public class PlayerControl : MonoBehaviour
     {
         if (unit.pool_AP >= unit.max_AP)
         {
+            for (int i = 0; i < this.GetComponent<Unit_Status>().target.Count; i++)
+            {
+                this.GetComponent<Unit_Status>().target[i].transform.Find("Targeting").gameObject.SetActive(false);
+            }
             AttackBoard.SetActive(true);
             is_enemy_target = true;
             target.Clear();
-            this.GetComponent<Unit_Status>().number_target = 1;
+            this.GetComponent<Unit_Status>().target_number = 1;
         }
     }
 
     public void Attack_Confirm()
     {
-        if (unit.pool_AP >= unit.max_AP && this.GetComponent<Unit_Status>().number_target == 0)
+        if (unit.pool_AP >= unit.max_AP)
         {
-            for(int i = 0; i < target.Count; i++)
+            for (int i = 0; i < target.Count; i++)
             {
                 target[0].GetComponent<Unit_Status>().unit.remain_HP -= unit.physical;
+            }
+            for (int i = 0; i < this.GetComponent<Unit_Status>().target.Count; i++)
+            {
+                this.GetComponent<Unit_Status>().target[i].transform.Find("Targeting").gameObject.SetActive(false);
             }
             AttackBoard.SetActive(false);
             this.GetComponent<Unit_Status>().End_Turn();
@@ -79,10 +87,14 @@ public class PlayerControl : MonoBehaviour
 
     public void Action_Cancel()
     {
+        for (int i = 0; i < this.GetComponent<Unit_Status>().target.Count; i++)
+        {
+            this.GetComponent<Unit_Status>().target[i].transform.Find("Targeting").gameObject.SetActive(false);
+        }
         is_enemy_target = false;
         is_friendly_target = false;
         target.Clear();
-        this.GetComponent<Unit_Status>().number_target = 0;
+        this.GetComponent<Unit_Status>().target_number = 0;
     }
 
     public void Skill_Button(int num)
@@ -90,19 +102,27 @@ public class PlayerControl : MonoBehaviour
         if (unit.pool_AP >= unit.max_AP)
         {
             TargetBoard.SetActive(true);
-            if(unit.skill_list[num].target_type == "enemy")
+            for (int i = 0; i < this.GetComponent<Unit_Status>().target.Count; i++)
+            {
+                this.GetComponent<Unit_Status>().target[i].transform.Find("Targeting").gameObject.SetActive(false);
+            }
+            if (unit.skill_list[num].target_type == "enemy")
             {
                 is_enemy_target = true;
             }
             target.Clear();
-            this.GetComponent<Unit_Status>().number_target = unit.skill_list[num].target_number;
+            this.GetComponent<Unit_Status>().target_number = unit.skill_list[num].target_number;
         }
     }
 
     public void Skill_Confirm(int num)
     {
-        if (unit.pool_AP >= unit.max_AP && this.GetComponent<Unit_Status>().number_target == 0)
+        if (unit.pool_AP >= unit.max_AP)
         {
+            for (int i = 0; i < this.GetComponent<Unit_Status>().target.Count; i++)
+            {
+                this.GetComponent<Unit_Status>().target[i].transform.Find("Targeting").gameObject.SetActive(false);
+            }
             this.gameObject.GetComponent<Use_Skill>().Using_Skill(unit.skill_list[num]);
             TargetBoard.SetActive(false);
             this.GetComponent<Unit_Status>().End_Turn();
@@ -111,9 +131,13 @@ public class PlayerControl : MonoBehaviour
 
     public void Skill_Cancel()
     {
+        for (int i = 0; i < this.GetComponent<Unit_Status>().target.Count; i++)
+        {
+            this.GetComponent<Unit_Status>().target[i].transform.Find("Targeting").gameObject.SetActive(false);
+        }
         is_enemy_target = false;
         is_friendly_target = false;
         target.Clear();
-        this.GetComponent<Unit_Status>().number_target = 0;
+        this.GetComponent<Unit_Status>().target_number = 0;
     }
 }
