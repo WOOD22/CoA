@@ -81,8 +81,11 @@ public struct Skill
     public string target_type;
     /*  스킬 사용 대상 수  */
     public int target_number;
-    /*  스킬 사용 조건  */
-    public List<string> need;
-    /*  스킬 사용 시 효과  */
+    /*  스킬 기본 효과  */
     public List<string> effect;
+    /*  스킬 업그레이드 효과  */
+    public List<string> first_Upgrade;
+    public List<string> second_Upgrade;
+    public List<string> third_Upgrade;
+    public List<string> fourth_Upgrade;
 }

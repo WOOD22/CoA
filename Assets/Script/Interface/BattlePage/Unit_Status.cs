@@ -9,12 +9,15 @@ public class Unit_Status : MonoBehaviour
     public List<GameObject> target = new List<GameObject>();
     public int target_number = 0;
     public GameObject HPbar, SPbar, APbar;
+    public Text hp_text, sp_text;
 
     private void Update()
     {
         HPbar.GetComponent<Image>().fillAmount = (float)unit.remain_HP / (float)unit.max_HP;
         SPbar.GetComponent<Image>().fillAmount = (float)unit.remain_SP / (float)unit.max_SP;
         APbar.GetComponent<Image>().fillAmount = (float)unit.pool_AP / (float)unit.max_AP;
+        hp_text.text = unit.remain_HP + "/" + unit.max_HP;
+        sp_text.text = unit.remain_SP + "/" + unit.max_SP;
 
         Dead();
     }

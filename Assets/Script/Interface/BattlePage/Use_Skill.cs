@@ -14,18 +14,13 @@ public class Use_Skill : MonoBehaviour
 
     public void Using_Skill(Skill skill)
     {
-        //need 처리
-        for(int i = 0; i < skill.need.Count; i++)
-        {
-            if(skill.need[i] == "SP")
-            {
-                Unit_Status.unit.remain_SP -= int.Parse(skill.need[i + 1]);
-            }
-        }
-
         //effect 처리
         for (int i = 0; i < skill.effect.Count; i++)
         {
+            if (skill.effect[i] == "SP")
+            {
+                Unit_Status.unit.remain_SP -= int.Parse(skill.effect[i + 1]);
+            }
             if (skill.effect[i] == "DMGPSY")
             {
                 for(int t = 0; t < Unit_Status.target.Count; t++)
