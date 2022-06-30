@@ -31,8 +31,8 @@ public class Targeting : MonoBehaviour
             {
                 for (int i = 0; i < results.Count; i++)
                 {
-
-                    if (results[i].gameObject.name == "Enemy"
+                    
+                    if (results[i].gameObject.name == "Unit"
                         && !player.GetComponent<Unit_Status>().target.Contains(results[i].gameObject))
                     {
                         player.GetComponent<Unit_Status>().target.Add(results[i].gameObject);
@@ -44,14 +44,14 @@ public class Targeting : MonoBehaviour
                             Debug.Log(player.GetComponent<Unit_Status>().target.Count);
                         }
                     }
-                    else if (results[i].gameObject.name == "Enemy"
+                    else if (results[i].gameObject.name == "Unit"
                         && player.GetComponent<Unit_Status>().target.Contains(results[i].gameObject))
                     {
                         results[i].gameObject.transform.Find("Targeting").gameObject.SetActive(false);
                         player.GetComponent<Unit_Status>().target.Remove(results[i].gameObject);
                     }
 
-                        if (player.GetComponent<Unit_Status>().target.Contains(results[i].gameObject))
+                    if (player.GetComponent<Unit_Status>().target.Contains(results[i].gameObject))
                     {
                         results[i].gameObject.transform.Find("Targeting").gameObject.SetActive(true);
                     }

@@ -11,6 +11,8 @@ public class Unit_Status : MonoBehaviour
     public GameObject HPbar, SPbar, APbar;
     public Text hp_text, sp_text;
 
+    public GameObject dmg_num_text;
+
     private void Update()
     {
         HPbar.GetComponent<Image>().fillAmount = (float)unit.remain_HP / (float)unit.max_HP;
@@ -22,10 +24,49 @@ public class Unit_Status : MonoBehaviour
         Dead();
     }
 
+    void LateUpdate()
+    {
+        if (BattlePage.is_delay == false && BattlePage.is_pause == false)
+        {
+            unit.pool_AP += unit.physical;
+            if (unit.pool_AP >= unit.max_AP)
+            {
+                //BattlePage.is_pause = true;
+            }
+        }
+    }
+
     public void End_Turn()
     {
         unit.pool_AP -= unit.max_AP;
         BattlePage.is_pause = false;
+    }
+
+    public void Get_Damage(float dmg)
+    {
+        GameObject dmg_num = this.transform.Find("Dmg_Num").gameObject;
+        bool new_text = true;
+        for(int i = 0; i < dmg_num.transform.childCount; i++)
+        {
+            if (dmg_num.transform.GetChild(i).gameObject.activeSelf == false)
+            {
+                new_text = false;
+                dmg_num.transform.GetChild(i).GetComponent<Text>().text = ((int)dmg).ToString();
+                dmg_num.transform.GetChild(i).gameObject.SetActive(true);
+            }
+            else
+            {
+                new_text = true;
+            }
+        }
+
+        if (new_text)
+        {
+            GameObject instance = Instantiate(dmg_num_text, dmg_num.transform);
+            instance.GetComponent<Text>().text = ((int)dmg).ToString();
+        }
+
+        unit.remain_HP -= (int)dmg;
     }
 
     public void Dead()
@@ -33,10 +74,6 @@ public class Unit_Status : MonoBehaviour
         if(unit.remain_HP <= 0)
         {
             this.gameObject.SetActive(false);
-            if(this.transform.parent.name == "Enemy")
-            {
-                BattlePage.enemy_death_count++;
-            }
         }
     }
 }

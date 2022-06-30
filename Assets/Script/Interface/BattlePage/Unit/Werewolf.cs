@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Werewolf : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class Werewolf : MonoBehaviour
     {
         unit = this.GetComponent<Unit_Status>().unit;
         unit.name = "늑대인간";
+        unit.image_name = "Werewolf";
+        this.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprite/Unit/" + unit.image_name);
         unit.physical = 5;
         unit.psychic = 1;
         unit.max_HP = 50;
@@ -19,15 +22,14 @@ public class Werewolf : MonoBehaviour
         unit.max_AP = 100;
         unit.pool_AP = 0;
     }
-    //레이트업데이트를 사용해야 작동함
+    
     void LateUpdate()
     {
         if (BattlePage.is_delay == false && BattlePage.is_pause == false)
         {
-            unit.pool_AP += 15;
             if (unit.pool_AP >= unit.max_AP)
             {
-                target.GetComponent<Unit_Status>().unit.remain_HP -= unit.physical;
+                target.GetComponent<Unit_Status>().Get_Damage(unit.physical);
                 unit.pool_AP -= unit.max_AP;
             }
         }

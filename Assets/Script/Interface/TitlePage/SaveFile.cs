@@ -43,4 +43,8 @@ public class SaveFile : MonoBehaviour
             GameObject.Find("SceneManager").GetComponent<SceneChanger>().SceneChange("GameScene");
         }
     }
+    public void Delete_Save()
+    {
+        GameObject.Find("SceneManager").GetComponent<SceneChanger>().SceneChange("NewGameScene");
+    }
 }

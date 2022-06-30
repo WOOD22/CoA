@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class NewGameScene : MonoBehaviour
 {
     Data data;
+    SkillData skilldata;
 
     public GameObject choice_1, choice_2, choice_3, choice_4, choice_5;
     public new Text name;
@@ -14,6 +15,7 @@ public class NewGameScene : MonoBehaviour
     private void Start()
     {
         data = GameObject.Find("DataManager").GetComponent<GameData>().data;
+        skilldata = GameObject.Find("DataManager").GetComponent<SkillData>();
     }
 
     public void Check_Choice_1(string answer)
@@ -120,6 +122,7 @@ public class NewGameScene : MonoBehaviour
             data.player.max_SP = data.player.psychic * 10;
             data.player.remain_SP = data.player.max_SP;
             data.player.caste = "Servant";
+            data.player.skill_list.Add(skilldata.skill_list[0]);
 
             GameObject.Find("DataManager").GetComponent<GameData>().Save_File("1");
             GameObject.Find("SceneManager").GetComponent<SceneChanger>().SceneChange("GameScene");

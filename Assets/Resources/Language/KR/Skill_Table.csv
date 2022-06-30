@@ -1,2 +1,2 @@
 ﻿code,name,info,effect,target_type,target_number
-SK001,피의 화살,피의 화살을 날려 상대에게 피해를 입힌다.,#SP#10#DMGPSY#4,enemy,2
+SK001,피의 화살,피의 화살을 날려 상대에게 피해를 입힌다.,#SP#10#DMGPSY#2.5,Enemy,1

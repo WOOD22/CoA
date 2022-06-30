@@ -25,6 +25,7 @@ public class PlayerControl : MonoBehaviour
         unit = this.GetComponent<Unit_Status>().unit;
 
         unit.name = data.player.name;
+        unit.image_name = "Vampire";
         unit.physical = data.player.physical;
         unit.psychic = data.player.psychic;
         unit.max_HP = data.player.max_HP;
@@ -35,17 +36,19 @@ public class PlayerControl : MonoBehaviour
         unit.pool_AP = 0;
 
         target = this.GetComponent<Unit_Status>().target;
-        skilldata = GameObject.Find("DataManager").GetComponent<SkillData>();
-        unit.skill_list.Add(skilldata.skill_list[0]);
+
+        for(int i = 0; i < data.player.skill_list.Count; i++)
+        {
+            unit.skill_list.Add(data.player.skill_list[i]);
+        }
 
         Skill_Text_0.text = skilldata.skill_list[0].name;
     }
-    //레이트업데이트를 사용해야 작동함
+    
     void LateUpdate()
     {
         if (BattlePage.is_delay == false && BattlePage.is_pause == false)
         {
-            unit.pool_AP += unit.physical;
             if (unit.pool_AP >= unit.max_AP)
             {
                 BattlePage.is_pause = true;
@@ -74,7 +77,7 @@ public class PlayerControl : MonoBehaviour
         {
             for (int i = 0; i < target.Count; i++)
             {
-                target[0].GetComponent<Unit_Status>().unit.remain_HP -= unit.physical;
+                target[0].GetComponent<Unit_Status>().Get_Damage(unit.physical);
             }
             for (int i = 0; i < this.GetComponent<Unit_Status>().target.Count; i++)
             {

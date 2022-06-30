@@ -60,6 +60,8 @@ public class Unit
 {
     /*  이름  */
     public string name = "";
+    /*  이미지  */
+    public string image_name;
     /*  체력  */
     public int max_HP, remain_HP;
     /*  SP  */
