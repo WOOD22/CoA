@@ -53,6 +53,7 @@ public class Unit_Status : MonoBehaviour
                 new_text = false;
                 dmg_num.transform.GetChild(i).GetComponent<Text>().text = ((int)dmg).ToString();
                 dmg_num.transform.GetChild(i).gameObject.SetActive(true);
+                break;
             }
             else
             {
@@ -63,9 +64,9 @@ public class Unit_Status : MonoBehaviour
         if (new_text)
         {
             GameObject instance = Instantiate(dmg_num_text, dmg_num.transform);
+            instance.GetComponent<Dmg_Num_Effect>().active_effect = dmg_num.transform.childCount;
             instance.GetComponent<Text>().text = ((int)dmg).ToString();
         }
-
         unit.remain_HP -= (int)dmg;
     }
 

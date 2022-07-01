@@ -40,6 +40,23 @@ public class UpgradePage : MonoBehaviour
     {
         upgrade_list = new List<string>();
 
+        if (data.player.caste == "Servant")
+        {
+            data.player.skill_list[upgrade_skill_num].upgrade_limit = 1;
+        }
+        else if (data.player.caste == "Knight")
+        {
+            data.player.skill_list[upgrade_skill_num].upgrade_limit = 2;
+        }
+        else if (data.player.caste == "Noble")
+        {
+            data.player.skill_list[upgrade_skill_num].upgrade_limit = 3;
+        }
+        else if (data.player.caste == "Load")
+        {
+            data.player.skill_list[upgrade_skill_num].upgrade_limit = 4;
+        }
+
         while (effect.Contains("#") == true)
         {
             int string_cut = effect.LastIndexOf("#", effect.Length);
@@ -50,26 +67,39 @@ public class UpgradePage : MonoBehaviour
         }
         upgrade_list.Reverse();
 
-        for (int i = 0; i < upgrade_list.Count; i++)
-        {
-            data.player.skill_list[upgrade_skill_num].first_Upgrade.Add(upgrade_list[i]);
-        }
-
         for (int i = 0; i < data.player.skill_list[upgrade_skill_num].effect.Count; i++)
         {
             for (int j = 0; j < upgrade_list.Count; j++)
             {
-                if (data.player.skill_list[upgrade_skill_num].effect[i] == "SP" && upgrade_list[j] == "SP")
+                if (data.player.skill_list[upgrade_skill_num].upgrade >= data.player.skill_list[upgrade_skill_num].upgrade_limit)
+                {
+                    break;
+                }
+                    if (data.player.skill_list[upgrade_skill_num].effect[i] == "SP" && upgrade_list[j] == "SP")
                 {
                     data.player.skill_list[upgrade_skill_num].effect[i + 1] = (float.Parse(data.player.skill_list[upgrade_skill_num].effect[i + 1]) + float.Parse(upgrade_list[j + 1])).ToString();
+                    data.player.skill_list[upgrade_skill_num].upgrade++;
                 }
                 if (data.player.skill_list[upgrade_skill_num].effect[i] == "DMGPSY" && upgrade_list[j] == "DMGPSY")
                 {
                     data.player.skill_list[upgrade_skill_num].effect[i + 1] = (float.Parse(data.player.skill_list[upgrade_skill_num].effect[i + 1]) + float.Parse(upgrade_list[j + 1])).ToString();
+                    data.player.skill_list[upgrade_skill_num].upgrade++;
                 }
             }
         }
-
+        for (int j = 0; j < upgrade_list.Count; j++)
+        {
+            if (data.player.skill_list[upgrade_skill_num].upgrade >= data.player.skill_list[upgrade_skill_num].upgrade_limit)
+            {
+                break;
+            }
+            if (data.player.skill_list[upgrade_skill_num].target_number < 3 && upgrade_list[j] == "Target_Num")
+            {
+                data.player.skill_list[upgrade_skill_num].target_number += int.Parse(upgrade_list[j + 1]);
+                data.player.skill_list[upgrade_skill_num].upgrade++;
+            }
+        }
+        GameObject.Find("DataManager").GetComponent<GameData>().data = data;
         Skill_Text();
     }
 }

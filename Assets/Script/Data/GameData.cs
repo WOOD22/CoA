@@ -75,7 +75,7 @@ public class Unit
 }
 /*  스킬  */
 [Serializable]
-public struct Skill
+public class Skill
 {
     /*  스킬의 코드, 이름, 설명  */
     public string code, name, info;
@@ -85,9 +85,6 @@ public struct Skill
     public int target_number;
     /*  스킬 기본 효과  */
     public List<string> effect;
-    /*  스킬 업그레이드 효과  */
-    public List<string> first_Upgrade;
-    public List<string> second_Upgrade;
-    public List<string> third_Upgrade;
-    public List<string> fourth_Upgrade;
+    /*  스킬 업그레이드, 업그레이드 한계  */
+    public int upgrade, upgrade_limit;
 }

@@ -65,7 +65,7 @@ public class BattlePage : MonoBehaviour
 
     public void Open_BattlePage()
     {
-        int enemy_num = Random.Range(0, 3);
+        int enemy_num = Random.Range(1, 4);
         Transform enemy_side = field.transform.Find("Enemy");
 
         for (int i = 0; i < enemy_num; i++)

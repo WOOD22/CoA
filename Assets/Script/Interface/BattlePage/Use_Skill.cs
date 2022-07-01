@@ -26,6 +26,7 @@ public class Use_Skill : MonoBehaviour
                 for(int t = 0; t < Unit_Status.target.Count; t++)
                 {
                     Unit_Status.target[t].GetComponent<Unit_Status>().Get_Damage(Unit_Status.unit.psychic * float.Parse(skill.effect[i + 1]));
+                    Unit_Status.target[t].GetComponent<Unit_Status>().Get_Damage(Unit_Status.unit.psychic * float.Parse(skill.effect[i + 1]));
                 }
             }
         }
