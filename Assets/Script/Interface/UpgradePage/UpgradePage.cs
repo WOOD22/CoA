@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,20 +18,20 @@ public class UpgradePage : MonoBehaviour
 
     public void Skill_Text()
     {
-        skill_text.text = "½ºÅ³¸í : " + data.player.skill_list[upgrade_skill_num].name + "\n" +
-                          "½ºÅ³ ¼³¸í : " + data.player.skill_list[upgrade_skill_num].info + "\n";
+        skill_text.text = "ìŠ¤í‚¬ëª… : " + data.player.skill_list[upgrade_skill_num].name + "\n" +
+                          "ìŠ¤í‚¬ ì„¤ëª… : " + data.player.skill_list[upgrade_skill_num].info + "\n";
 
-        skill_text.text += "\nÅ¸°Ù ´ë»ó : " + data.player.skill_list[upgrade_skill_num].target_type +
-                           "\nÅ¸°Ù ¼ö : " + data.player.skill_list[upgrade_skill_num].target_number;
+        skill_text.text += "\níƒ€ê²Ÿ ëŒ€ìƒ : " + data.player.skill_list[upgrade_skill_num].target_type +
+                           "\níƒ€ê²Ÿ ìˆ˜ : " + data.player.skill_list[upgrade_skill_num].target_number;
         for (int i = 0; i < data.player.skill_list[upgrade_skill_num].effect.Count; i++)
         {
             if (data.player.skill_list[upgrade_skill_num].effect[i] == "SP")
             {
-                skill_text.text += "\nSP¼Ò¸ğ : " + data.player.skill_list[upgrade_skill_num].effect[i + 1];
+                skill_text.text += "\nSPì†Œëª¨ : " + data.player.skill_list[upgrade_skill_num].effect[i + 1];
             }
             if (data.player.skill_list[upgrade_skill_num].effect[i] == "DMGPSY")
             {
-                skill_text.text += "\nÀÌ´É°è¼ö : " + data.player.skill_list[upgrade_skill_num].effect[i + 1];
+                skill_text.text += "\nì´ëŠ¥ê³„ìˆ˜ : " + data.player.skill_list[upgrade_skill_num].effect[i + 1];
             }
         }
     }

@@ -15,6 +15,7 @@ public class PlayerInfoPage : MonoBehaviour
         player_info_page.SetActive(true);
         info_text.text = "이름 : " + player.name + "\n"
                        + "혈족 : " + player.clan + "\n"
+                       + "계급 : " + player.caste + "\n"
                        + "HP : " + player.remain_HP + "/" + player.max_HP + "\n"
                        + "SP : " + player.remain_SP + "/" + player.max_SP + "\n"
                        + "육체 : " + player.physical + "\n"

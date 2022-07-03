@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,7 +15,7 @@ public class EventPop : MonoBehaviour
             DateUI.Pause_Button();
         }
 
-        //º¸¸§´Ş ¶ß´Â ¹ã ÀÌº¥Æ® Ã¼Å©
+        //ë³´ë¦„ë‹¬ ëœ¨ëŠ” ë°¤ ì´ë²¤íŠ¸ ì²´í¬
         if (moon.GetComponent<MoonChange>().day == 14)
         {
             if (Random.Range(0, 100.0f) < 25f)
